@@ -1,4 +1,4 @@
-﻿using ASP_NET_Core_Fundamentals.Models;
+﻿using ASP_NET_Core_Fundamentals.Entities;
 using System.Collections.Generic;
 
 namespace ASP_NET_Core_Fundamentals.Services

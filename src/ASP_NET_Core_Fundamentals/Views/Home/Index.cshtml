@@ -3,7 +3,7 @@
 *@
 
 
-@model IEnumerable<ASP_NET_Core_Fundamentals.Models.Restaurant>
+@model ASP_NET_Core_Fundamentals.ViewModels.HomePageVM
 
 <!DOCTYPE html>
 <html>
@@ -12,10 +12,19 @@
 </head>
 <body>
     <h1>Welkom!</h1>
-    @foreach (var item in Model)
+    <h3>@Model.CurrentGreeting</h3>
+    <table>
+    @foreach (var item in Model.Restaurants)
     {
-        <div>Restaurant nr. @item.Id: @item.Name</div>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+        </tr>
+        
     }
+    </table>
+
+
     <div>Dit is de Home page. From a MVC View!</div>
 </body>
 </html>
