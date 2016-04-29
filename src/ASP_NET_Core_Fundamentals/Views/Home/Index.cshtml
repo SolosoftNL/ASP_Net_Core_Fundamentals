@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+@model IEnumerable<ASP_NET_Core_Fundamentals.Models.Restaurant>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welkom!</h1>
+    @foreach (var item in Model)
+    {
+        <div>Restaurant nr. @item.Id: @item.Name</div>
+    }
+    <div>Dit is de Home page. From a MVC View!</div>
+</body>
+</html>
