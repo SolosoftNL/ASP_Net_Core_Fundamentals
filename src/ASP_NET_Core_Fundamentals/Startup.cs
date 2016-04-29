@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using ASP_NET_Core_Fundamentals.Services;
 using System;
+using Microsoft.AspNet.Routing;
 
 namespace ASP_NET_Core_Fundamentals
 {
@@ -51,7 +52,9 @@ namespace ASP_NET_Core_Fundamentals
             //The above 2 lines can be replaced by
             app.UseFileServer();
 
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+
+            app.UseMvc(RouteConfigurations);
 
             app.Run(async (context) =>
             {
@@ -60,6 +63,12 @@ namespace ASP_NET_Core_Fundamentals
                 var greeting = greeter.GetGreeting();
                 await context.Response.WriteAsync(greeting);
             });
+        }
+
+        private void RouteConfigurations(IRouteBuilder routeBuilder)
+        {
+            // /Home/Index
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
 
         // Entry point for the application.
