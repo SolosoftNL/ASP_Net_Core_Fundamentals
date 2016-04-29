@@ -1,5 +1,7 @@
 ﻿using ASP_NET_Core_Fundamentals.Entities;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace ASP_NET_Core_Fundamentals.Services
 {
@@ -10,7 +12,7 @@ namespace ASP_NET_Core_Fundamentals.Services
 
         public InMemoryRestaurantData()
         {
-             _listOfRestaurants = new List<Restaurant>() {
+            _listOfRestaurants = new List<Restaurant>() {
                 new Restaurant { Id = 1, Name ="RestaurantName1" },
                 new Restaurant { Id =2, Name = "RestaurantName2" },
                 new Restaurant { Id =3, Name = "RestaurantName3" },
@@ -23,6 +25,11 @@ namespace ASP_NET_Core_Fundamentals.Services
         public IEnumerable<Restaurant> GetAll()
         {
             return _listOfRestaurants;
+        }
+
+        public Restaurant GetById(int id)
+        {
+            return _listOfRestaurants.Where(r => r.Id == id).FirstOrDefault();
         }
     }
 }

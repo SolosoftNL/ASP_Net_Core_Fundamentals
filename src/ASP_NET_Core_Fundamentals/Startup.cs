@@ -69,7 +69,7 @@ namespace ASP_NET_Core_Fundamentals
         private void RouteConfigurations(IRouteBuilder routeBuilder)
         {
             // /Home/Index
-            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id=1}");
         }
 
         // Entry point for the application.

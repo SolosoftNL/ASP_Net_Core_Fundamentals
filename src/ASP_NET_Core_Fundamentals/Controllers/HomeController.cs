@@ -22,7 +22,7 @@ namespace ASP_NET_Core_Fundamentals.Controllers
 
 
         // GET: /<controller>/
-        public ViewResult Index()
+        public IActionResult Index()
         {
             //var model = new Restaurant { Id = 1, Name = "The Bakery" };
             var model = new HomePageVM();
@@ -30,6 +30,18 @@ namespace ASP_NET_Core_Fundamentals.Controllers
             model.CurrentGreeting = _greeter.GetGreeting();
 
             return View("Index", model);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var model = _restaurantData.GetById(id);
+
+            if (model==null)
+            {
+                return RedirectToActionPermanent("Index");
+            }
+
+            return View(model);
         }
     }
 }

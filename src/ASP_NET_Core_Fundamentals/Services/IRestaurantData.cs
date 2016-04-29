@@ -6,5 +6,6 @@ namespace ASP_NET_Core_Fundamentals.Services
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
+        Restaurant GetById(int id);
     }
 }
